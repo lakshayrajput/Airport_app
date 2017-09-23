@@ -19,6 +19,6 @@ from airport_app.views import mobile_view
 
 urlpatterns = [
     url(r'^mobile', mobile_view),
-    url(r'^admin', admin.site.urls)
+    url(r'^admin', admin.site.urls),
 
 ]

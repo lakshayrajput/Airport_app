@@ -3,7 +3,7 @@
 </head>
 <body>
 <h2>Enter your mobile-no</h2>
-<form action = "" method = "GET">
+<form action = "" method = "POST">
 {% csrf_token %}
 <input type = "number" id = "mob_no" name = "mob_no" placeholder = "mob-no" value = "{{mob_no}}">
 <input type = "submit" name = "submit" value = "submit" >

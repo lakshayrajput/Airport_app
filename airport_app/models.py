@@ -5,6 +5,6 @@ import uuid
 
 # Create your models here.
 class CustomerModel(models.Model):
-    mob_no = models.IntegerField(default=10)
-    aadhaar_no = models.IntegerField(default=12)
+    mob_no = models.IntegerField(default = 12)
+    aadhaar_no = models.IntegerField(default = 20)
     otp_no = models.IntegerField(default=8)

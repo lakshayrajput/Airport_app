@@ -18,11 +18,14 @@ def mobile_view(request):
     elif request.method == "POST":
         print("Getting values from request....")
         mobile_form = MobileForm(request.POST)
+        #print("Mobile-no"+str(mobile_form))
         if mobile_form.is_valid():
-            clean_mob_no = mobile_form.cleaned_data['mob_no']
+            clean_mob_no = mobile_form.cleaned_data.get('mob_no')
+            print("mobile-no"+str(clean_mob_no))
             filtered_mob_no = CustomerModel.objects.filter(mob_no =clean_mob_no)#Check mob_no from database..
             if filtered_mob_no:
-                temp_mob_no = str(filtered_mob_no)
+                temp_mob_no = str(clean_mob_no)
+                print(temp_mob_no)
                 otp = random.randint(1111,5555)
                 otp_object = CustomerModel(otp_no = otp)
                 otp_object.save()    #saving otp to data-base....
@@ -32,7 +35,7 @@ def mobile_view(request):
                 message     = client.messages.create(
                     to = "+91"+temp_mob_no,
                     from_= "+14153013736",
-                    body = otp
+                    body = str(otp) + "Bro its me LAKSHAY.Ssup broooo..."
                 )
 
                 print message.sid
